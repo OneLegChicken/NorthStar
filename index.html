@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f6fa" />
+    <title>Northstar · Fleet control</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell" id="app">
+      <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+        <div class="brand-row">
+          <div class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 36 36" fill="none"><path d="M18 3.75 31 11v14L18 32.25 5 25V11l13-7.25Z" stroke="currentColor" stroke-width="1.7"/><path d="m18 10 7 4v8l-7 4-7-4v-8l7-4Z" fill="currentColor"/><circle cx="18" cy="18" r="2.1" fill="white"/></svg>
+          </div>
+          <div class="brand-copy"><strong>northstar</strong><span>FLEET CONTROL</span></div>
+          <button class="icon-button sidebar-collapse" id="collapseSidebar" aria-label="Collapse sidebar" title="Collapse sidebar"><span class="icon" data-icon="panel"></span></button>
+        </div>
+
+        <button class="workspace-switcher" id="workspaceSwitch" aria-label="Switch workspace">
+          <span class="workspace-avatar">P</span>
+          <span class="workspace-copy"><strong>Production</strong><small>Primary workspace</small></span>
+          <span class="icon muted" data-icon="chevrons"></span>
+        </button>
+
+        <nav class="nav-groups">
+          <div class="nav-group">
+            <p class="nav-label">Workspace</p>
+            <button class="nav-item active" data-view="overview"><span class="icon" data-icon="grid"></span><span>Overview</span></button>
+            <button class="nav-item" data-view="nodes"><span class="icon" data-icon="server"></span><span>Nodes</span><span class="nav-count">15</span></button>
+            <button class="nav-item" data-view="tunnels"><span class="icon" data-icon="route"></span><span>Tunnels</span></button>
+          </div>
+          <div class="nav-group">
+            <p class="nav-label">Customers</p>
+            <button class="nav-item" data-view="users"><span class="icon" data-icon="users"></span><span>Users</span></button>
+            <button class="nav-item" data-view="plans"><span class="icon" data-icon="layers"></span><span>Plans</span></button>
+            <button class="nav-item" data-view="resellers"><span class="icon" data-icon="briefcase"></span><span>Resellers</span></button>
+          </div>
+          <div class="nav-group">
+            <p class="nav-label">Configuration</p>
+            <button class="nav-item" data-view="inbounds"><span class="icon" data-icon="radio"></span><span>Inbounds</span></button>
+            <button class="nav-item" data-view="templates"><span class="icon" data-icon="copy"></span><span>Templates</span></button>
+            <button class="nav-item" data-view="routing"><span class="icon" data-icon="shuffle"></span><span>Routing</span></button>
+          </div>
+          <div class="nav-group">
+            <p class="nav-label">Operations</p>
+            <button class="nav-item" data-view="traffic"><span class="icon" data-icon="chart"></span><span>Traffic</span></button>
+            <button class="nav-item" data-view="events"><span class="icon" data-icon="activity"></span><span>Events</span><span class="nav-dot"></span></button>
+            <button class="nav-item" data-view="backups"><span class="icon" data-icon="archive"></span><span>Backups</span></button>
+          </div>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <button class="nav-item" data-view="settings"><span class="icon" data-icon="settings"></span><span>Settings</span></button>
+          <div class="sidebar-status"><span class="status-dot"></span><span>All systems operational</span></div>
+          <button class="profile-card" id="profileButton">
+            <span class="profile-avatar">AM</span>
+            <span class="profile-copy"><strong>Alex Morgan</strong><small>Super administrator</small></span>
+            <span class="icon muted" data-icon="more"></span>
+          </button>
+        </div>
+      </aside>
+
+      <div class="mobile-scrim" id="mobileScrim"></div>
+      <main class="main-shell">
+        <header class="topbar">
+          <div class="topbar-left">
+            <button class="icon-button mobile-menu" id="mobileMenu" aria-label="Open navigation"><span class="icon" data-icon="menu"></span></button>
+            <div class="breadcrumbs"><span>Production</span><span class="breadcrumb-sep">/</span><strong id="breadcrumbCurrent">Overview</strong></div>
+          </div>
+          <div class="topbar-actions">
+            <button class="search-trigger" id="openSearch"><span class="icon" data-icon="search"></span><span>Search anything</span><kbd>⌘ K</kbd></button>
+            <span class="topbar-divider"></span>
+            <button class="icon-button notification-button" id="notificationButton" aria-label="Notifications"><span class="icon" data-icon="bell"></span><i></i></button>
+            <button class="icon-button" id="themeToggle" aria-label="Switch theme" title="Switch theme"><span class="icon" data-icon="moon"></span></button>
+            <span class="topbar-divider"></span>
+            <button class="topbar-user" id="topProfileButton"><span class="profile-avatar small">AM</span><span>Alex Morgan</span><span class="icon muted" data-icon="chevron-down"></span></button>
+          </div>
+        </header>
+        <section class="content-area" id="contentArea" aria-live="polite"></section>
+      </main>
+    </div>
+
+    <div class="overlay-root" id="overlayRoot"></div>
+    <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
+    <script src="./app.js"></script>
+  </body>
+</html>
